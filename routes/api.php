@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Api\FcmTestController;
+use App\Http\Controllers\Api\FcmDeviceController;
 
 Route::post('/fcm/test-send', [FcmTestController::class, 'send']);
 Route::get('/ping', function () {
@@ -8,3 +9,8 @@ Route::get('/ping', function () {
         'message' => 'Laravel reached',
     ]);
 });
+
+
+
+Route::post('/fcm/register-token', [FcmDeviceController::class, 'registerToken']);
+Route::post('/fcm/deactivate-token', [FcmDeviceController::class, 'deactivateToken']);
