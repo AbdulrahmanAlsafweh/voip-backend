@@ -1,8 +1,9 @@
 <?php
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FcmTestController;
 use App\Http\Controllers\Api\FcmDeviceController;
 
-Route::post('/fcm/test-send', [FcmTestController::class, 'send']);
 Route::get('/ping', function () {
     return response()->json([
         'ok' => true,
@@ -10,7 +11,6 @@ Route::get('/ping', function () {
     ]);
 });
 
-
-
+Route::post('/fcm/test-send', [FcmTestController::class, 'send']);
 Route::post('/fcm/register-token', [FcmDeviceController::class, 'registerToken']);
 Route::post('/fcm/deactivate-token', [FcmDeviceController::class, 'deactivateToken']);
